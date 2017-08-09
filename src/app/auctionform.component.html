@@ -1,0 +1,366 @@
+<div class="row">
+  <div class="col-md-9">
+    <form class="form-inline" novalidate (ngSubmit)="onSubmit(auctionsearch)" [formGroup]="auctionsearch">
+      <label>
+        <span>League</span>
+        <select formControlName="league">
+          <option *ngFor="let l of leaguesREST | async" [value]="l.id">{{l.id}}</option>
+        </select>
+      </label>
+      <br/>
+      <label>
+        <span>Type</span>
+        <select formControlName="type">
+          <option *ngFor="let t of types" [value]="t.name">{{t.name}}</option>
+        </select>
+      </label>
+      <br/>
+      <label>
+        <span>Base</span>
+        <select formControlName="base">
+          <option *ngFor="let b of bases" [value]="b.name">{{b.name}}</option>
+        </select>
+      </label>
+      <br/>
+      <label>
+        <span>Item Name</span>
+        <input class="form-control"
+               type="text"
+               name="itemName"
+               placeholder="Search..."
+               formControlName="itemName">
+      </label>
+      <div formGroupName="offense">
+        <div formGroupName="damage">
+          <label>
+            <span>Damage</span>
+            <input class="form-control"
+                   type="number"
+                   name="min"
+                   placeholder="Min"
+                   formControlName="min">
+            <input class="form-control"
+                   type="number"
+                   name="max"
+                   placeholder="Max"
+                   formControlName="max">
+          </label>
+        </div>
+        <div formGroupName="dps">
+          <label>
+          <span>DPS</span>
+          <input class="form-control"
+                 type="number"
+                 name="min"
+                 placeholder="Min"
+                 formControlName="min">
+          <input class="form-control"
+                 type="number"
+                 name="max"
+                 placeholder="Max"
+                 formControlName="max">
+          </label>
+        </div>
+        <div formGroupName="pdps">
+          <label>
+            <span>pDPS</span>
+            <input class="form-control"
+                   type="number"
+                   name="min"
+                   placeholder="Min"
+                   formControlName="min">
+            <input class="form-control"
+                   type="number"
+                   name="max"
+                   placeholder="Max"
+                   formControlName="max">
+          </label>
+        </div>
+        <div formGroupName="edps">
+          <label>
+            <span>eDPS</span>
+            <input class="form-control"
+                   type="number"
+                   name="min"
+                   placeholder="Min"
+                   formControlName="min">
+            <input class="form-control"
+                   type="number"
+                   name="max"
+                   placeholder="Max"
+                   formControlName="max">
+          </label>
+        </div>
+        <div formGroupName="aps">
+          <label>
+            <span>APS</span>
+            <input class="form-control"
+                   type="number"
+                   name="min"
+                   placeholder="Min"
+                   formControlName="min">
+            <input class="form-control"
+                   type="number"
+                   name="max"
+                   placeholder="Max"
+                   formControlName="max">
+          </label>
+        </div>
+        <div formGroupName="crit">
+          <label>
+            <span>Critical Strike</span>
+            <input class="form-control"
+                   type="number"
+                   name="min"
+                   placeholder="Min"
+                   formControlName="min">
+            <input class="form-control"
+                   type="number"
+                   name="max"
+                   placeholder="Max"
+                   formControlName="max">
+          </label>
+        </div>
+      </div>
+      <div formGroupName="defense">
+        <div formGroupName="armor">
+          <label>
+            <span>Armor</span>
+            <input class="form-control"
+                   type="number"
+                   name="min"
+                   placeholder="Min"
+                   formControlName="min">
+            <input class="form-control"
+                   type="number"
+                   name="max"
+                   placeholder="Max"
+                   formControlName="max">
+          </label>
+        </div>
+        <div formGroupName="evasion">
+          <label>
+            <span>Evasion</span>
+            <input class="form-control"
+                   type="number"
+                   name="min"
+                   placeholder="Min"
+                   formControlName="min">
+            <input class="form-control"
+                   type="number"
+                   name="max"
+                   placeholder="Max"
+                   formControlName="max">
+          </label>
+        </div>
+        <div formGroupName="shield">
+          <label>
+            <span>Energy Shield</span>
+            <input class="form-control"
+                   type="number"
+                   name="min"
+                   placeholder="Min"
+                   formControlName="min">
+            <input class="form-control"
+                   type="number"
+                   name="max"
+                   placeholder="Max"
+                   formControlName="max">
+          </label>
+        </div>
+        <div formGroupName="block">
+          <label>
+            <span>Block</span>
+            <input class="form-control"
+                   type="number"
+                   name="min"
+                   placeholder="Min"
+                   formControlName="min">
+            <input class="form-control"
+                   type="number"
+                   name="max"
+                   placeholder="Max"
+                   formControlName="max">
+          </label>
+        </div>
+      </div>
+      <!--<br/>-->
+      <!--<label>-->
+        <!--<span>Sockets</span>-->
+        <!--<input type="number"-->
+               <!--name="name"-->
+               <!--placeholder="Min">-->
+        <!--<input type="number"-->
+               <!--name="name"-->
+               <!--placeholder="Max">-->
+        <!--<input type="number"-->
+               <!--name="name"-->
+               <!--placeholder="R">-->
+        <!--<input type="number"-->
+               <!--name="name"-->
+               <!--placeholder="G">-->
+        <!--<input type="number"-->
+               <!--name="name"-->
+               <!--placeholder="B">-->
+        <!--<input type="number"-->
+               <!--name="name"-->
+               <!--placeholder="W">-->
+      <!--</label>-->
+      <!--<br/>-->
+      <!--<label>-->
+        <!--<span>Links</span>-->
+        <!--<input type="number"-->
+               <!--name="name"-->
+               <!--placeholder="Min">-->
+        <!--<input type="number"-->
+               <!--name="name"-->
+               <!--placeholder="Max">-->
+        <!--<input type="number"-->
+               <!--name="name"-->
+               <!--placeholder="R">-->
+        <!--<input type="number"-->
+               <!--name="name"-->
+               <!--placeholder="G">-->
+        <!--<input type="number"-->
+               <!--name="name"-->
+               <!--placeholder="B">-->
+        <!--<input type="number"-->
+               <!--name="name"-->
+               <!--placeholder="W">-->
+      <!--</label>-->
+      <!--<br/>-->
+      <!--<label>-->
+        <!--<span>Level</span>-->
+        <!--<input type="number"-->
+               <!--name="name"-->
+               <!--placeholder="Min">-->
+        <!--<input type="number"-->
+               <!--name="name"-->
+               <!--placeholder="Max">-->
+      <!--</label>-->
+      <!--<br/>-->
+      <!--<label>-->
+        <!--<span>Strength</span>-->
+        <!--<input type="number"-->
+               <!--name="name"-->
+               <!--placeholder="Min">-->
+        <!--<input type="number"-->
+               <!--name="name"-->
+               <!--placeholder="Max">-->
+      <!--</label>-->
+      <!--<br/>-->
+      <!--<label>-->
+        <!--<span>Dexterity</span>-->
+        <!--<input type="number"-->
+               <!--name="name"-->
+               <!--placeholder="Min">-->
+        <!--<input type="number"-->
+               <!--name="name"-->
+               <!--placeholder="Max">-->
+      <!--</label>-->
+      <!--<br/>-->
+      <!--<label>-->
+        <!--<span>Intelligence</span>-->
+        <!--<input type="number"-->
+               <!--name="name"-->
+               <!--placeholder="Min">-->
+        <!--<input type="number"-->
+               <!--name="name"-->
+               <!--placeholder="Max">-->
+      <!--</label>-->
+      <!--<br/>-->
+      <!--<label>-->
+        <!--<span>MODS</span>-->
+      <!--</label>-->
+      <!--<br/>-->
+      <!--<label>-->
+        <!--<span>Quality</span>-->
+        <!--<input type="number"-->
+               <!--name="name"-->
+               <!--placeholder="Min">-->
+        <!--<input type="number"-->
+               <!--name="name"-->
+               <!--placeholder="Max">-->
+      <!--</label>-->
+      <!--<br/>-->
+      <!--<label>-->
+        <!--<span>Level/Tier</span>-->
+        <!--<input type="number"-->
+               <!--name="name"-->
+               <!--placeholder="Min">-->
+        <!--<input type="number"-->
+               <!--name="name"-->
+               <!--placeholder="Max">-->
+      <!--</label>-->
+      <!--<br/>-->
+      <!--<label>-->
+        <!--<span>iLvl</span>-->
+        <!--<input type="number"-->
+               <!--name="name"-->
+               <!--placeholder="Min">-->
+        <!--<input type="number"-->
+               <!--name="name"-->
+               <!--placeholder="Max">-->
+      <!--</label>-->
+      <!--<br/>-->
+      <!--<label>-->
+        <!--<span>Rarity</span>-->
+        <!--<select>-->
+          <!--<option></option>-->
+        <!--</select>-->
+      <!--</label>-->
+      <!--<br/>-->
+      <!--<label>-->
+        <!--<span>Identified</span>-->
+        <!--<select>-->
+          <!--<option></option>-->
+        <!--</select>-->
+      <!--</label>-->
+      <!--<br/>-->
+      <!--<label>-->
+        <!--<span>Corrupted</span>-->
+        <!--<select>-->
+          <!--<option></option>-->
+        <!--</select>-->
+      <!--</label>-->
+      <!--<br/>-->
+      <!--<label>-->
+        <!--<span>Online Only</span>-->
+        <!--<select>-->
+          <!--<option></option>-->
+        <!--</select>-->
+      <!--</label>-->
+      <!--<br/>-->
+      <!--<label>-->
+        <!--<span>Buyout</span>-->
+        <!--<select>-->
+          <!--<option></option>-->
+        <!--</select>-->
+      <!--</label>-->
+      <!--<br/>-->
+      <!--<label>-->
+        <!--<span>Crafted</span>-->
+        <!--<select>-->
+          <!--<option></option>-->
+        <!--</select>-->
+      <!--</label>-->
+      <!--<br/>-->
+      <!--<label>-->
+        <!--<span>Enchanted</span>-->
+        <!--<select>-->
+          <!--<option></option>-->
+        <!--</select>-->
+      <!--</label>-->
+      <button class="btn btn-success" type="submit">Search</button>
+      <button class="btn btn-default" type="button" (click)="resetForm()">Reset</button>
+    </form>
+  </div>
+  <div class="col-md-3">
+    {{ auctionsearch.value | json }}
+    <ul>
+      <li *ngFor="let l of leaguesREST | async">
+        {{l.id}}
+      </li>
+    </ul>
+  </div>
+</div>
